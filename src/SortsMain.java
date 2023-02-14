@@ -7,7 +7,8 @@ public class SortsMain {
                 new InsertSort(),
                 new BubbleSort(),
                 new SelectionSort(),
-                new ShellSort()
+                new HeapSort(),
+                new ShellSort(),
         };
 
         for (SortBase sortMethod : sortMethods) {

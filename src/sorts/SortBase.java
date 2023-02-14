@@ -12,6 +12,10 @@ public abstract class SortBase {
         this.init(10);
     }
 
+    public SortBase(double[] arr) {
+        this.arr = arr;
+    }
+
     public static String center(String s, int size) {
         return center(s, size, ' ');
     }
@@ -34,6 +38,12 @@ public abstract class SortBase {
         for (int i = 0; i < len; i++) {
             this.arr[i] = Math.ceil(Math.random() * 100000) / 100;
         }
+    }
+
+    protected void swap(int i1, int i2) {
+        double temp = this.arr[i1];
+        this.arr[i1] = this.arr[i2];
+        this.arr[i2] = temp;
     }
 
     abstract public void sort();
