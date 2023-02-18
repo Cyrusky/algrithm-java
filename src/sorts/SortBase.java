@@ -36,7 +36,7 @@ public abstract class SortBase {
     public void init(int len) {
         this.arr = new double[len];
         for (int i = 0; i < len; i++) {
-            this.arr[i] = Math.ceil(Math.random() * 100000) / 100;
+            this.arr[i] = Math.ceil(Math.random() * 10000) / 100;
         }
     }
 
