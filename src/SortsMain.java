@@ -9,7 +9,8 @@ public class SortsMain {
                 new SelectionSort(),
                 new HeapSort(),
                 new ShellSort(),
-                new MergeSort()
+                new MergeSort(),
+                new QuickSort()
         };
 
         for (SortBase sortMethod : sortMethods) {
