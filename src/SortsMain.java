@@ -10,7 +10,8 @@ public class SortsMain {
                 new HeapSort(),
                 new ShellSort(),
                 new MergeSort(),
-                new QuickSort()
+                new QuickSort(),
+                new BucketSort()
         };
 
         for (SortBase sortMethod : sortMethods) {
