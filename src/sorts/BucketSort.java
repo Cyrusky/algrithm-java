@@ -1,7 +1,7 @@
 package sorts;
 
 
-import ComplexDataStructure.List.LinkedList;
+import datastructure.List.LinkedList;
 
 import java.util.Arrays;
 
@@ -11,24 +11,23 @@ public class BucketSort extends SortBase {
 
     @Override
     public void sort() {
-        double[] sortedArray = Arrays.copyOf(this.arr, this.arr.length);
-        @SuppressWarnings("unchecked")
-        LinkedList<Double>[] buckets = new LinkedList[BucketSort.BUCKET_SIZE];
-        for (double j : sortedArray) {
-            int base = (int) j % BucketSort.BUCKET_SIZE;
+        int[] sortedArray = Arrays.copyOf(this.arr, this.arr.length);
+        LinkedList[] buckets = new LinkedList[BucketSort.BUCKET_SIZE];
+        for (int j : sortedArray) {
+            int base = j % BucketSort.BUCKET_SIZE;
             if (buckets[base] == null) {
-                buckets[base] = new LinkedList<>();
+                buckets[base] = new LinkedList();
             }
             buckets[base].add(j);
         }
         // Bubble sort each Linked List;
-        for (LinkedList<Double> list : buckets) {
-            LinkedList<Double>.Node startNode = list.list.next;
+        for (LinkedList list : buckets) {
+            LinkedList.Node startNode = list.list.next;
             while (startNode.next != null) {
-                LinkedList<Double>.Node compareNode = startNode.next;
+                LinkedList.Node compareNode = startNode.next;
                 while (compareNode != null) {
                     if (startNode.value > compareNode.value) {
-                        double temp = startNode.value;
+                        int temp = startNode.value;
                         startNode.value = compareNode.value;
                         compareNode.value = temp;
                     }
@@ -39,9 +38,9 @@ public class BucketSort extends SortBase {
         }
         int arrayIndex = 0;
         while (arrayIndex < sortedArray.length) {
-            Double min = null;
-            LinkedList<Double>.Node minNode = null;
-            for (LinkedList<Double> linkedList : buckets) {
+            Integer min = null;
+            LinkedList.Node minNode = null;
+            for (LinkedList linkedList : buckets) {
                 if (linkedList.list.next == null) {
                     continue;
                 }

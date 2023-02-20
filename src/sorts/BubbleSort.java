@@ -8,12 +8,12 @@ public class BubbleSort extends SortBase {
      */
     @Override
     public void sort() {
-        double[] sortedArray = Arrays.copyOf(this.arr, this.arr.length);
+        int[] sortedArray = Arrays.copyOf(this.arr, this.arr.length);
 
         for (int i = sortedArray.length - 1; i > 0; i--) {
             for (int j = 1; j <= i; j++) {
                 if (sortedArray[j] < sortedArray[j - 1]) {
-                    double temp = sortedArray[j];
+                    int temp = sortedArray[j];
                     sortedArray[j] = sortedArray[j - 1];
                     sortedArray[j - 1] = temp;
                 }

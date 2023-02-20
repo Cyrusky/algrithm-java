@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class ShellSort extends SortBase {
     @Override
     public void sort() {
-        double[] sortedArray = Arrays.copyOf(this.arr, this.arr.length);
+        int[] sortedArray = Arrays.copyOf(this.arr, this.arr.length);
         int margin = sortedArray.length;
         while (margin > 1) {
             margin = (int) Math.ceil((float) (margin) / 2);
@@ -14,7 +14,7 @@ public class ShellSort extends SortBase {
                     int k = j;
                     while (k - margin >= 0) {
                         if (sortedArray[k] < sortedArray[k - margin]) {
-                            double temp = sortedArray[k];
+                            int temp = sortedArray[k];
                             sortedArray[k] = sortedArray[k - margin];
                             sortedArray[k - margin] = temp;
                         }

@@ -1,6 +1,6 @@
 package sorts;
 
-import ComplexDataStructure.heap.ArrayHeap;
+import datastructure.heap.ArrayHeap;
 
 import java.util.Arrays;
 
@@ -8,7 +8,7 @@ import java.util.Arrays;
 public class HeapSort extends SortBase {
     @Override
     public void sort() {
-        double[] sortedArray = Arrays.copyOf(this.arr, this.arr.length);
+        int[] sortedArray = Arrays.copyOf(this.arr, this.arr.length);
         ArrayHeap arrayHeap = new ArrayHeap(sortedArray, false);
         for (int i = sortedArray.length - 1; i > 0; i--) {
             arrayHeap.swap(0, i);

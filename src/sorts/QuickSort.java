@@ -6,16 +6,16 @@ public class QuickSort extends SortBase {
 
     @Override
     public void sort() {
-        double[] sortedArray = Arrays.copyOf(this.arr, this.arr.length);
+        int[] sortedArray = Arrays.copyOf(this.arr, this.arr.length);
         this.recursivelySort(0, sortedArray.length - 1, sortedArray);
         this.print(sortedArray);
     }
 
-    private void recursivelySort(int start, int end, double[] sortedArray) {
+    private void recursivelySort(int start, int end, int[] sortedArray) {
         if (start >= end) {
             return;
         }
-        double pivot = sortedArray[start];
+        int pivot = sortedArray[start];
         int low = start;
         int high = end;
         while (low < high) {

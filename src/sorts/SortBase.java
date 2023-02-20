@@ -1,8 +1,11 @@
 package sorts;
 
+import config.Constants;
+import utils.SingletonCounter;
+
 public abstract class SortBase {
 
-    protected double[] arr;
+    protected int[] arr;
 
     public SortBase(int len) {
         this.init(len);
@@ -12,7 +15,7 @@ public abstract class SortBase {
         this.init(10);
     }
 
-    public SortBase(double[] arr) {
+    public SortBase(int[] arr) {
         this.arr = arr;
     }
 
@@ -33,56 +36,58 @@ public abstract class SortBase {
         return sb.toString();
     }
 
-    public void init(int len) {
-        this.arr = new double[len];
+    private void init(int len) {
+        this.arr = new int[len];
         for (int i = 0; i < len; i++) {
-            this.arr[i] = Math.ceil(Math.random() * 10000) / 100;
+            this.arr[i] = (int) Math.ceil(Math.random() * Math.pow(10, Constants.numberLength));
         }
     }
 
     protected void swap(int i1, int i2) {
-        double temp = this.arr[i1];
+        int temp = this.arr[i1];
         this.arr[i1] = this.arr[i2];
         this.arr[i2] = temp;
     }
 
     abstract public void sort();
 
-    protected void print(double[] arr) {
+    protected void print(int[] arr) {
+        SingletonCounter counter = SingletonCounter.getInstance();
+
         System.out.println("=".repeat(110));
-        System.out.print(SortBase.center(String.format("Sort Result (%s)", this.getClass().getSimpleName()), 110));
+        System.out.print(SortBase.center(String.format("【%02d】 Sort Result (%s)", ++counter.counter, this.getClass().getSimpleName()), 110));
         System.out.println("\n" + "-".repeat(110));
         System.out.println("Original number array:");
-        for (double v : this.arr) {
-            System.out.printf("\t%3.3f", v);
+        for (int v : this.arr) {
+            System.out.printf("\t%" + Constants.numberLength + "d", v);
         }
         System.out.println();
         System.out.print("\t");
         for (int i = 0; i < this.arr.length; i++) {
             if (i == 0) {
-                System.out.print("\33[33;1m---\33[0m\t\t");
+                System.out.printf("\33[33;1m%" + Constants.numberLength + "s\33[0m\t", "---");
             } else if (this.arr[i] >= this.arr[i - 1]) {
-                System.out.print("\33[32;1m√\33[0m\t\t");
+                System.out.printf("\33[32;1m%" + Constants.numberLength + "s\33[0m\t", "√");
             } else {
-                System.out.print("\33[31;1m×\33[0m\t\t");
+                System.out.printf("\33[31;1m%" + Constants.numberLength + "s\33[0m\t", "×");
             }
         }
         System.out.println("\n" + "-".repeat(100));
         System.out.println("Sorted number array:");
-        for (double v : arr) {
-            System.out.printf("\t%3.3f", v);
+        for (int v : arr) {
+            System.out.printf("\t%" + Constants.numberLength + "d", v);
         }
         System.out.println();
         System.out.print("\t");
         int errors = 0;
         for (int i = 0; i < arr.length; i++) {
             if (i == 0) {
-                System.out.print("\33[33;1m---\33[0m\t\t");
+                System.out.printf("\33[33;1m%" + Constants.numberLength + "s\33[0m\t", "---");
             } else if (arr[i] >= arr[i - 1]) {
-                System.out.print("\33[32;1m√\33[0m\t\t");
+                System.out.printf("\33[32;1m%" + Constants.numberLength + "s\33[0m\t", "√");
             } else {
                 errors++;
-                System.out.print("\33[31;1m×\33[0m\t\t");
+                System.out.printf("\33[31;1m%" + Constants.numberLength + "s\33[0m\t", "×");
             }
         }
         System.out.println(errors == 0 ? "\33[32;1m(Test success)\33[0m" : "\33[31;1m(Test error)\33[0m\t\t");

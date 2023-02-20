@@ -1,10 +1,10 @@
-package ComplexDataStructure.heap;
+package datastructure.heap;
 
 public class ArrayHeap {
 
     private final boolean isMinHeap;
     private final int heapLength;
-    public double[] arr = {};
+    public int[] arr = {};
     private boolean firstBuild;
 
     public ArrayHeap(int heapLength, boolean isMinHeap) {
@@ -16,7 +16,7 @@ public class ArrayHeap {
         this.firstBuild = false;
     }
 
-    public ArrayHeap(double[] arr, boolean isMinHeap) {
+    public ArrayHeap(int[] arr, boolean isMinHeap) {
         this.isMinHeap = isMinHeap;
         this.heapLength = arr.length;
         this.arr = arr;
@@ -55,16 +55,16 @@ public class ArrayHeap {
     }
 
     public void swap(int i1, int i2) {
-        double temp = this.arr[i1];
+        int temp = this.arr[i1];
         this.arr[i1] = this.arr[i2];
         this.arr[i2] = temp;
     }
 
 
     private void initializeRawData() {
-        this.arr = new double[this.heapLength];
+        this.arr = new int[this.heapLength];
         for (int i = 0; i < this.heapLength; i++) {
-            this.arr[i] = Math.ceil(Math.random() * 100000) / 100;
+            this.arr[i] = (int) Math.ceil(Math.random() * 100000) / 100;
         }
     }
 

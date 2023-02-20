@@ -1,4 +1,4 @@
-package ComplexDataStructure.tree;
+package datastructure.tree;
 
 public class BinaryTree {
     private final TreeNode tree = null;

@@ -11,7 +11,8 @@ public class SortsMain {
                 new ShellSort(),
                 new MergeSort(),
                 new QuickSort(),
-                new BucketSort()
+                new BucketSort(),
+                new RadixSort()
         };
 
         for (SortBase sortMethod : sortMethods) {

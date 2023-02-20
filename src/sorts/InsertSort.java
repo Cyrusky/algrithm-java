@@ -8,13 +8,13 @@ public class InsertSort extends SortBase {
      */
     @Override
     public void sort() {
-        double[] sortedArray = Arrays.copyOf(this.arr, this.arr.length);
+        int[] sortedArray = Arrays.copyOf(this.arr, this.arr.length);
 
         for (int i = 0; i < sortedArray.length - 1; i++) {
             int j = i + 1;
             while (j > 0 && j < sortedArray.length) {
                 if (sortedArray[j] < sortedArray[j - 1]) {
-                    double temp = sortedArray[j];
+                    int temp = sortedArray[j];
                     sortedArray[j] = sortedArray[j - 1];
                     sortedArray[j - 1] = temp;
                 }

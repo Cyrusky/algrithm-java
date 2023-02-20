@@ -1,6 +1,6 @@
-package ComplexDataStructure.List;
+package datastructure.List;
 
-public class LinkedList<T extends Number> {
+public class LinkedList {
 
     public Node list;
     private Node tail;
@@ -12,17 +12,17 @@ public class LinkedList<T extends Number> {
         this.tail = this.list;
     }
 
-    public void add(T value) {
+    public void add(Integer value) {
         this.tail.next = new Node(value);
         this.tail = this.tail.next;
     }
 
 
-    public class Node {
-        public T value;
+    public static class Node {
+        public Integer value;
         public Node next;
 
-        public Node(T value) {
+        public Node(Integer value) {
             this.value = value;
             this.next = null;
         }
